@@ -12,3 +12,5 @@ declare type Optional<T> = { [P in keyof T]?: T[P] };
 
 /** Type for Redux Form Error */
 declare type FormErrors<FormData = {}> = { [P in keyof FormData]?: string };
+
+declare type CallbackFuncType = (error: any, responseData?: any) => void;

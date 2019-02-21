@@ -9,6 +9,7 @@ import { loadingDialogClose } from '../actions/loadingDialog.action';
 
 import Message from '../components/Message.component';
 import LoadingDialog from '../components/LoadingDialog.component';
+import Layout from './Layout.container';
 
 import ReducerState from '../types/Redux.type';
 import { State as MessageState } from '../types/message.type';
@@ -42,6 +43,7 @@ class App extends React.Component<Props> {
 
     return (
       <>
+        <Layout />
         <Message message={message} onMessageClose={this.handelMessageClose} />
         <LoadingDialog loadingDialog={loadingDialog} />
       </>

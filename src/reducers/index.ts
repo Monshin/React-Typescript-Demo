@@ -4,14 +4,15 @@ import { reducer as reduxFormReducer } from 'redux-form';
 
 import messageReducer from './message.reducer';
 import loadingDialogReducer from './loadingDialog.reducer';
+import postReducer from './post.reducer';
 
 import ReducerState from '../types/Redux.type';
 
-const reducers = {
+export default combineReducers<ReducerState>({
   messageReducer,
   loadingDialogReducer,
+  postReducer,
+  
   form: reduxFormReducer,
   routing: routerReducer
-};
-
-export default combineReducers<ReducerState>(reducers);
+});
