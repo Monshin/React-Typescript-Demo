@@ -1,4 +1,3 @@
-import Debug from 'debug';
 import Joi from 'joi';
 
 type EnvNameType = 'debug' | 'debug-production' | 'production';
