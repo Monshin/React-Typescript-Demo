@@ -30,16 +30,26 @@ const getConfig = () => {
     throw new Error(`Config validation error: ${error.message}`);
   }
 
+  const PROJECT_NAME = 'react-typescript-simple';
+
+  if (localStorage.debug) {
+    localStorage.removeItem('debug');
+  }
+  if (envVars.REACT_EVN === 'debug') {
+    localStorage.debug = `${PROJECT_NAME}:*`;
+  }
+
   const API_URL: EnvDicObjectType = {
-    debug: 'http://127.0.0.1:8080',
-    'debug-production': 'http://127.0.0.1:8888',
-    production: 'https://simple.com'
+    debug: 'https://jsonplaceholder.typicode.com',
+    'debug-production': 'https://jsonplaceholder.typicode.com',
+    production: 'https://jsonplaceholder.typicode.com'
   };
 
   return {
-    REACT_EVN: envVars.REACT_EVN,
+    PROJECT_NAME,
     VERSION: '0.1.0',
-    API_URL: API_URL[envVars.REACT_EVN],
+    REACT_EVN: envVars.REACT_EVN,
+    API_URL: API_URL[envVars.REACT_EVN]
   };
 };
 

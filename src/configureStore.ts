@@ -4,10 +4,11 @@ import { createEpicMiddleware } from 'redux-observable';
 import rootReducer from './reducers';
 import rootEpic from './epics';
 import config from './config/config';
+import ReducerState from './types/Redux.type';
 
 export default function configureStore() {
   // const epicMiddleware = createEpicMiddleware(rootEpic);
-  const epicMiddleware = createEpicMiddleware();
+  const epicMiddleware = createEpicMiddleware<any, any, ReducerState>();
 
   let composeEnhancers;
   if (config.REACT_EVN === 'debug') {
