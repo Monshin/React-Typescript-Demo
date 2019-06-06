@@ -1,33 +1,13 @@
-import Joi from 'joi';
-
-type EnvNameType = 'debug' | 'debug-production' | 'production';
-
-interface EnvDicObjectType {
-  [propName: string]: string;
-  debug: string;
-  'debug-production': string;
-  production: string;
-}
+type EnvStringType = 'debug' | 'alpha' | 'production';
+type EnvDicObjectType = { [propName in EnvStringType]: string };
 
 const getConfig = () => {
-  const envVarSchema = Joi.object()
-    .keys({
-      REACT_EVN: Joi.string()
-        .default('debug')
-        .allow(['debug', 'debug-production', 'production'])
-    })
-    .unknown()
-    .required();
+  const envVars = {
+    REACT_EVN: process.env.REACT_APP_ENV ? (process.env.REACT_APP_ENV as EnvStringType) : 'debug'
+  };
 
-  const { error, value: envVars } = Joi.validate(
-    {
-      REACT_EVN: process.env.REACT_APP_ENV as EnvNameType
-    },
-    envVarSchema
-  );
-
-  if (error) {
-    throw new Error(`Config validation error: ${error.message}`);
+  if (!['debug', 'alpha', 'production'].includes(envVars.REACT_EVN)) {
+    throw new Error(`Config validation error`);
   }
 
   const PROJECT_NAME = 'react-typescript-simple';
@@ -41,7 +21,7 @@ const getConfig = () => {
 
   const API_URL: EnvDicObjectType = {
     debug: 'https://jsonplaceholder.typicode.com',
-    'debug-production': 'https://jsonplaceholder.typicode.com',
+    alpha: 'https://jsonplaceholder.typicode.com',
     production: 'https://jsonplaceholder.typicode.com'
   };
 
