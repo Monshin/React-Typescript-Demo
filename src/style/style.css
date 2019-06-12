@@ -1,0 +1,46 @@
+html,
+body,
+div#myRoot {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f8f8f8;
+  font-family: 'Microsoft JhengHei', 'PingFangTC', Arial, sans-serif;
+}
+
+html {
+  font-size: 14px;
+  font-size: 87.5%;
+}
+
+body {
+  font-size: 14px;
+  font-size: 100%;
+}
+
+.CenterContainer {
+  width: 100%;
+  height: calc(100vh - 150px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-height: 600px) {
+  .CenterContainer {
+    height: auto;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.Text-Center {
+  text-align: center;
+}
+
+.LinkWithoutUnderline {
+  color: inherit;
+  text-decoration: none;
+}
