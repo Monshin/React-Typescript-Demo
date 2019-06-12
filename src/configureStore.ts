@@ -1,5 +1,7 @@
 import { createStore, applyMiddleware, compose } from 'redux';
+import { routerMiddleware } from 'connected-react-router';
 import { createEpicMiddleware } from 'redux-observable';
+import { createBrowserHistory } from 'history';
 
 import rootReducer from './reducers';
 import rootEpic from './epics';
@@ -10,20 +12,16 @@ export default function configureStore() {
   // const epicMiddleware = createEpicMiddleware(rootEpic);
   const epicMiddleware = createEpicMiddleware<any, any, ReducerState>();
 
-  let composeEnhancers;
-  if (config.REACT_EVN === 'debug') {
-    composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-  }
-  else {
-    composeEnhancers = compose;
-  }
+  const history = createBrowserHistory();
+  const composeEnhancers =
+    config.REACT_EVN === 'debug' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose : compose;
 
   const store = createStore(
-    rootReducer,
-    composeEnhancers(applyMiddleware(epicMiddleware)),
+    rootReducer(history),
+    composeEnhancers(applyMiddleware(routerMiddleware(history), epicMiddleware))
   );
 
   epicMiddleware.run(rootEpic);
 
-  return store;
+  return { store, history };
 }

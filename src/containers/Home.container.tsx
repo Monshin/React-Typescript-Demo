@@ -1,6 +1,5 @@
 import React from 'react';
 // import Debug from 'debug';
-import classNames from 'classnames';
 import withStyles, { WithStyles } from '@material-ui/core/styles/withStyles';
 import { connect } from 'react-redux';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
@@ -19,19 +18,21 @@ import { State as PostState } from '../types/post.type';
 // const debug = Debug(`${config.PROJECT_NAME}:Home.container`);
 
 interface StateProps {
-  postDatas: PostState["datas"],
-  postNeedMore: PostState["needMore"],
+  postDatas: PostState['datas'];
+  postNeedMore: PostState['needMore'];
 }
 
 interface ActionProps {
-  postClearList: typeof postClearList,
-  postGetList: typeof postGetList,
+  postClearList: typeof postClearList;
+  postGetList: typeof postGetList;
 }
 
-type Props = StateProps & ActionProps & RouteComponentProps<{}> & WithStyles<typeof MainContentStyles>;
+type Props = StateProps &
+  ActionProps &
+  RouteComponentProps<{}> &
+  WithStyles<typeof MainContentStyles>;
 
 class Home extends React.Component<Props> {
-  
   componentDidMount() {
     const { postClearList } = this.props;
     postClearList();
@@ -45,47 +46,40 @@ class Home extends React.Component<Props> {
 
   handleLoadMoreList = () => {
     const { postGetList } = this.props;
-    // debug(sortType, tabValue);
-    postGetList({ });
-  }
+    postGetList({});
+  };
 
   render() {
-    const {
-      classes,
-      postDatas,
-      // postNeedMore,
-    } = this.props;
+    const { classes, postDatas } = this.props;
 
     return (
-      <>
-        <div className={classNames(classes.container)}>
-          <div className={classes.fullContent}>
-            {postDatas.map(item => (
-              <Card key={item.id}>
-                <CardHeader title={item.title} />
-                <CardContent>
-                  {item.body}
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+      <div className={classes.container}>
+        <div className={classes.fullContent}>
+          {postDatas.map(item => (
+            <Card key={item.id}>
+              <CardHeader title={item.title} />
+              <CardContent>{item.body}</CardContent>
+            </Card>
+          ))}
         </div>
-      </>
-    )
+      </div>
+    );
   }
 }
 
-const HomeContainer = withRouter(connect<StateProps, ActionProps, {}, ReducerState>(
-  // 從 Reducer 來的
-  ({ postReducer }) => ({
-    postDatas: postReducer.datas,
-    postNeedMore: postReducer.needMore,
-  }),
-  // actions
-  {
-    postClearList,
-    postGetList,
-  },
-)(Home));
+const HomeContainer = withRouter(
+  connect<StateProps, ActionProps, {}, ReducerState>(
+    // 從 Reducer 來的
+    ({ postReducer }) => ({
+      postDatas: postReducer.datas,
+      postNeedMore: postReducer.needMore
+    }),
+    // actions
+    {
+      postClearList,
+      postGetList
+    }
+  )(Home)
+);
 
-export default withStyles(MainContentStyles, { withTheme: true })(HomeContainer);
+export default withStyles(MainContentStyles)(HomeContainer);

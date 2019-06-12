@@ -6,6 +6,14 @@ export const MESSAGE_CLOSE: 'MESSAGE_CLOSE' = 'MESSAGE_CLOSE';
 /** 顯示AJAX錯誤訊息 */
 export const MESSAGE_SHOW_AJAX_ERROR: 'MESSAGE_SHOW_AJAX_ERROR' = 'MESSAGE_SHOW_AJAX_ERROR';
 
+// =>>>>>>>> SideMenu 側邊目錄 <<<<<<<<<<<<=
+/** 顯示側邊目錄 */
+export const SIDEMENU_SHOW: 'SIDEMENU_SHOW' = 'SIDEMENU_SHOW';
+/** 隱藏側邊目錄 */
+export const SIDEMENU_CLOSE: 'SIDEMENU_CLOSE' = 'SIDEMENU_CLOSE';
+/** 切換側邊目錄 */
+export const SIDEMENU_CHANGE: 'SIDEMENU_CHANGE' = 'SIDEMENU_CHANGE';
+
 // =>>>>>>>> Loading Dialog <<<<<<<<<<<<=
 /** 顯示Loading Dialog */
 export const LOADING_DIALOG_SHOW: 'LOADING_DIALOG_SHOW' = 'LOADING_DIALOG_SHOW';
@@ -18,6 +26,7 @@ export const LOADING_DIALOG_CLOSE: 'LOADING_DIALOG_CLOSE' = 'LOADING_DIALOG_CLOS
 // ██╔══██║██╔═══╝ ██║    ██╔══██║██║        ██║   ██║██║   ██║██║╚██╗██║╚════██║
 // ██║  ██║██║     ██║    ██║  ██║╚██████╗   ██║   ██║╚██████╔╝██║ ╚████║███████║
 // ╚═╝  ╚═╝╚═╝     ╚═╝    ╚═╝  ╚═╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
+
 // =>>>>>>>> POST API <<<<<<<<<<<<=
 /** 文章列表清空 */
 export const POST_CLEAR_LIST: 'POST_CLEAR_LIST' = 'POST_CLEAR_LIST';
