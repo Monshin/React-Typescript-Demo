@@ -13,32 +13,32 @@ const LayoutStyles = (theme: Theme) =>
       position: 'sticky',
       top: appBarHeight + pageMarginAppBar,
       [theme.breakpoints.down('sm')]: {
-        display: 'none'
-      }
+        display: 'none',
+      },
     },
     sideMenuPaper: {
-      width: sideMenuWidth
+      width: sideMenuWidth,
     },
     sideMenuText: {
       padding: 0,
       color: '#4a4a4a',
-      fontSize: 14
+      fontSize: 14,
     },
     sideMenuTextSelected: {
       color: '#000000',
       fontSize: 16,
-      fontWeight: 500
+      fontWeight: 500,
     },
     drawerPaper: {
-      width: sideMenuWidth
+      width: sideMenuWidth,
     },
     drawerCloseButton: {
-      borderRadius: 0
+      borderRadius: 0,
     },
     link: {
       display: 'block',
-      textDecoration: 'none'
-    }
+      textDecoration: 'none',
+    },
   });
 
 export default LayoutStyles;

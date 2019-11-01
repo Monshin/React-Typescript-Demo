@@ -1,8 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import withStyles, { WithStyles } from '@material-ui/core/styles/withStyles';
-import { RouteComponentProps } from 'react-router';
-import { Route, RouteProps, Switch, withRouter } from 'react-router-dom';
+import { Route, RouteProps, RouteComponentProps, Switch, withRouter } from 'react-router';
 
 import HeaderComponent from '../components/Layout/Header.component';
 import SideMenuComponent from '../components/Layout/Sidemenu.component';
@@ -11,27 +10,30 @@ import About from './About.container';
 import NotFound from './NotFound.container';
 import LayoutStyles from '../style/layout/Layout.style';
 
-interface OwnProps {}
+interface MyRouteProps extends RouteProps {
+  key: React.ReactText;
+}
 
-type Props = OwnProps & RouteComponentProps<{}> & WithStyles<typeof LayoutStyles>;
+type Props = RouteComponentProps & WithStyles<typeof LayoutStyles>;
 
 const Layout: React.SFC<Props> = ({ classes }) => {
-  let routeList: Array<RouteProps> = [];
-
-  routeList.push(
+  const routeList: Array<MyRouteProps> = [
     {
+      key: 'Home',
       exact: true,
       path: '/',
-      component: Home
+      component: Home,
     },
     {
+      key: 'About',
       path: '/about',
-      component: About
+      component: About,
     },
     {
-      component: NotFound
-    }
-  );
+      key: 'NotFound',
+      component: NotFound,
+    },
+  ];
 
   return (
     <>
@@ -40,8 +42,8 @@ const Layout: React.SFC<Props> = ({ classes }) => {
         <SideMenuComponent />
         <main className={classNames(classes.content)}>
           <Switch>
-            {routeList.map(props => (
-              <Route key={(props.path as string) || 'AllRoute'} {...props} />
+            {routeList.map(({ key, ...props }) => (
+              <Route key={key} {...props} />
             ))}
           </Switch>
         </main>
@@ -50,6 +52,4 @@ const Layout: React.SFC<Props> = ({ classes }) => {
   );
 };
 
-const LayoutContainer = withStyles(LayoutStyles)(Layout);
-
-export default withRouter(LayoutContainer);
+export default withStyles(LayoutStyles)(withRouter(Layout));

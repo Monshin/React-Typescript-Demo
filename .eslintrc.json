@@ -17,24 +17,20 @@
   "plugins": ["@typescript-eslint", "react"],
   "rules": {
     "strict": 0,
+    "no-shadow": "off",
+    "no-console": "off",
     "import/extensions": "off",
     "import/no-mutable-exports": "off",
     "import/no-unresolved": "off",
-    "jsx-a11y/anchor-is-valid": [
-      "error",
-      {
-        "components": ["Link"],
-        "specialLink": ["to"]
-      }
-    ],
+    "implicit-arrow-linebreak": "off",
+    "jsx-a11y/anchor-is-valid": ["error", { "components": ["Link"], "specialLink": ["to"] }],
     "react/prop-types": ["off"],
-    "react/jsx-filename-extension": [
+    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx", ".tsx"] }],
+    "react/jsx-props-no-spreading": ["error", { "exceptions": ["Route"] }],
+    "object-curly-newline": [
       "error",
-      {
-        "extensions": [".js", ".jsx", ".tsx"]
-      }
-    ],
-    "no-console": "off"
+      { "ImportDeclaration": { "multiline": true }, "ExportDeclaration": { "multiline": true } }
+    ]
   },
   "overrides": [
     {

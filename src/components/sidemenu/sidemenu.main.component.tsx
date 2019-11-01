@@ -41,27 +41,27 @@ class SideMenuMain extends React.Component<Props> {
   render() {
     const { classes, pathname } = this.props;
 
-    let SideMenuList: Array<SideMenuItemType> = [
+    const SideMenuList: Array<SideMenuItemType> = [
       {
         text: '首頁',
         link: '/',
-        selected: pathname === '/'
+        selected: pathname === '/',
       },
       {
         text: '關於',
         link: '/about',
-        selected: pathname.toLowerCase().startsWith('/about')
-      }
+        selected: pathname.toLowerCase().startsWith('/about'),
+      },
     ];
 
     return (
       <>
-        {SideMenuList.map(item => (
+        {SideMenuList.map((item) => (
           <Link key={item.link} className={classes.link} to={item.link}>
             <ListItem
               key={item.link}
               selected={item.selected}
-              onClick={event => {
+              onClick={(event) => {
                 this.handleDrawerClose(event);
                 if (item.onClick) {
                   item.onClick(event);
@@ -71,7 +71,7 @@ class SideMenuMain extends React.Component<Props> {
             >
               <ListItemText
                 className={classNames(classes.sideMenuText, {
-                  [classes.sideMenuTextSelected]: item.selected
+                  [classes.sideMenuTextSelected]: item.selected,
                 })}
                 disableTypography
                 primary={item.text}
@@ -86,7 +86,7 @@ class SideMenuMain extends React.Component<Props> {
 
 export default connect<StateProps, ActionProps, {}, ReducerState>(
   ({ router }) => ({
-    pathname: router.location.pathname
+    pathname: router.location.pathname,
   }),
-  { sidemenuClose }
+  { sidemenuClose },
 )(withStyles(SideMenuStyle)(SideMenuMain));

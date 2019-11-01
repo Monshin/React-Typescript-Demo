@@ -5,14 +5,14 @@ import { Action, SideMenuContentType } from '../types/sidemenu.type';
  *  顯示側邊Menu
  */
 const sidemenuShow = (): Action => ({
-  type: SIDEMENU_SHOW
+  type: SIDEMENU_SHOW,
 });
 
 /**
  * 關閉側邊Menu
  */
 const sidemenuClose = (): Action => ({
-  type: SIDEMENU_CLOSE
+  type: SIDEMENU_CLOSE,
 });
 
 /**
@@ -21,7 +21,7 @@ const sidemenuClose = (): Action => ({
  */
 const sidemenuChange = (content: SideMenuContentType): Action => ({
   type: SIDEMENU_CHANGE,
-  content
+  content,
 });
 
 export { sidemenuShow, sidemenuClose, sidemenuChange };

@@ -1,13 +1,9 @@
-import {
-  SIDEMENU_CLOSE,
-  SIDEMENU_SHOW,
-  SIDEMENU_CHANGE,
-} from '../constants/ActionTypes';
+import { SIDEMENU_CLOSE, SIDEMENU_SHOW, SIDEMENU_CHANGE } from '../constants/ActionTypes';
 import { Action, State } from '../types/sidemenu.type';
 
 const model: State = {
   status: false,
-  content: ''
+  content: '',
 };
 
 const sidemenuReducer = (state: State = model, action: Action): State => {
@@ -15,20 +11,20 @@ const sidemenuReducer = (state: State = model, action: Action): State => {
     case SIDEMENU_CLOSE:
       return {
         ...state,
-        status: false
+        status: false,
       };
 
     case SIDEMENU_SHOW:
       return {
         ...state,
-        status: true
+        status: true,
       };
 
-    case SIDEMENU_CHANGE: 
+    case SIDEMENU_CHANGE:
       return {
         ...state,
-        content: action.content
-      }
+        content: action.content,
+      };
 
     default:
       return {

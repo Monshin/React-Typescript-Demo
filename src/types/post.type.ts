@@ -2,7 +2,7 @@ import {
   POST_CLEAR_LIST,
   POST_GET_LIST,
   POST_RECEIVE_LIST,
-  POST_SET_LIST_LOADING
+  POST_SET_LIST_LOADING,
 } from '../constants/ActionTypes';
 import PostModel from '../models/PostModel';
 
@@ -26,11 +26,7 @@ interface SetListLoadingAction {
   isLoading: boolean;
 }
 
-export type Action =
-  | ClearAction
-  | GetListAction
-  | ReceiveListAction
-  | SetListLoadingAction;
+export type Action = ClearAction | GetListAction | ReceiveListAction | SetListLoadingAction;
 
 export interface State {
   datas: Array<PostModel>; // 文章列表

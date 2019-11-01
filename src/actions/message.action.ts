@@ -1,8 +1,4 @@
-import {
-  MESSAGE_SHOW,
-  MESSAGE_CLOSE,
-  MESSAGE_SHOW_AJAX_ERROR
-} from '../constants/ActionTypes';
+import { MESSAGE_SHOW, MESSAGE_CLOSE, MESSAGE_SHOW_AJAX_ERROR } from '../constants/ActionTypes';
 import { Action, MessageVariantType } from '../types/message.type';
 
 /**
@@ -13,14 +9,14 @@ import { Action, MessageVariantType } from '../types/message.type';
 const messageShow = (text: string, variant?: MessageVariantType): Action => ({
   type: MESSAGE_SHOW,
   text,
-  variant
+  variant,
 });
 
 /**
  * 關閉訊息視窗
  */
 const messageClose = (): Action => ({
-  type: MESSAGE_CLOSE
+  type: MESSAGE_CLOSE,
 });
 
 /**
@@ -29,7 +25,7 @@ const messageClose = (): Action => ({
  */
 const messageShowAjaxError = (error: XMLHttpRequest): Action => ({
   type: MESSAGE_SHOW_AJAX_ERROR,
-  error
+  error,
 });
 
 export { messageShow, messageClose, messageShowAjaxError };

@@ -17,8 +17,8 @@ const LayoutStyles = (theme: Theme) =>
       alignItems: 'flex-start',
       alignContent: 'flex-start',
       [theme.breakpoints.down('xs')]: {
-        top: 80
-      }
+        top: 80,
+      },
     },
     content: {
       flexGrow: 1,
@@ -31,12 +31,12 @@ const LayoutStyles = (theme: Theme) =>
       [theme.breakpoints.down('sm')]: {
         marginLeft: 0,
         minWidth: '100%',
-        maxWidth: '100%'
-      }
+        maxWidth: '100%',
+      },
     },
     contentWithOutSidemenu: {
-      maxWidth: '100%'
-    }
+      maxWidth: '100%',
+    },
   });
 
 export default LayoutStyles;

@@ -1,7 +1,4 @@
-import {
-  LOADING_DIALOG_CLOSE,
-  LOADING_DIALOG_SHOW,
-} from '../constants/ActionTypes';
+import { LOADING_DIALOG_CLOSE, LOADING_DIALOG_SHOW } from '../constants/ActionTypes';
 import { Action, State } from '../types/loadingDialog.type.js';
 
 const model: State = {

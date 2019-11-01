@@ -2,7 +2,7 @@ import {
   POST_CLEAR_LIST,
   POST_GET_LIST,
   POST_RECEIVE_LIST,
-  POST_SET_LIST_LOADING
+  POST_SET_LIST_LOADING,
 } from '../constants/ActionTypes';
 import { Action } from '../types/post.type';
 import PostModel from '../models/PostModel';
@@ -11,7 +11,7 @@ import PostModel from '../models/PostModel';
  * 文章列表清空
  */
 const postClearList = (): Action => ({
-  type: POST_CLEAR_LIST
+  type: POST_CLEAR_LIST,
 });
 
 /**
@@ -22,7 +22,7 @@ const postClearList = (): Action => ({
 const postGetList = (filter: Object, callback?: CallbackFuncType): Action => ({
   type: POST_GET_LIST,
   filter,
-  callback
+  callback,
 });
 
 /**
@@ -31,7 +31,7 @@ const postGetList = (filter: Object, callback?: CallbackFuncType): Action => ({
  */
 const postReceiveList = (datas: Array<PostModel>): Action => ({
   type: POST_RECEIVE_LIST,
-  datas
+  datas,
 });
 
 /**
@@ -40,7 +40,7 @@ const postReceiveList = (datas: Array<PostModel>): Action => ({
  */
 const postSetListLoading = (isLoading: boolean): Action => ({
   type: POST_SET_LIST_LOADING,
-  isLoading
+  isLoading,
 });
 
 export { postClearList, postGetList, postReceiveList, postSetListLoading };
