@@ -18,63 +18,53 @@ import { Action as MessageActionType } from '../types/message.type';
 
 const debug = Debug(`${config.PROJECT_NAME}:post.epic`);
 
-type OutputActionType =
-  | PostActionType
-  | MessageActionType
-  | LoadingDialogActionType;
+type OutputActionType = PostActionType | MessageActionType | LoadingDialogActionType;
 
-const postGetList: Epic<OutputActionType, OutputActionType, ReducerState> = (
-  action$,
-  store$
-) =>
+const postGetList: Epic<OutputActionType, OutputActionType, ReducerState> = (action$, store$) =>
   action$.ofType<GetListAction>(ActionTypes.POST_GET_LIST).pipe(
     mergeMap(({ filter, callback }) => {
       if (store$.value.postReducer.isLoading) {
         return empty();
       }
       return merge(
-        of(
-          loadingDialogActions.loadingDialogShow(),
-          postActions.postSetListLoading(true)
-        ),
+        of(loadingDialogActions.loadingDialogShow(), postActions.postSetListLoading(true)),
         ajax
           .get(`${config.API_URL}/posts`, {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
           })
           .pipe(
-            mergeMap(response => {
+            mergeMap((response) => {
               debug(response);
               if (response.status === 200) {
                 const responseData = response.response;
-                if (callback && typeof callback === 'function')
-                  callback(null, responseData);
+                if (callback && typeof callback === 'function') callback(null, responseData);
                 return of(
                   postActions.postSetListLoading(false),
                   postActions.postReceiveList(responseData),
                   messageActions.messageShow('OK', 'info'),
-                  loadingDialogActions.loadingDialogClose()
+                  loadingDialogActions.loadingDialogClose(),
                 );
               }
               return of(
                 postActions.postSetListLoading(false),
                 messageActions.messageShow('發生錯誤', 'error'),
-                loadingDialogActions.loadingDialogClose()
+                loadingDialogActions.loadingDialogClose(),
               );
             }),
-            catchError(error => {
+            catchError((error) => {
               debug('posts', error);
               if (callback && typeof callback === 'function') callback(error);
               return of(
                 postActions.postSetListLoading(false),
                 messageActions.messageShowAjaxError(error),
-                loadingDialogActions.loadingDialogClose()
+                loadingDialogActions.loadingDialogClose(),
               );
-            })
-          )
+            }),
+          ),
       );
-    })
+    }),
   );
 
 export default {
-  postGetList
+  postGetList,
 };

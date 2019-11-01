@@ -8,8 +8,6 @@ import createMyTheme from './style/createMyTheme';
 import configureStore from './configureStore';
 import App from './containers/App.container';
 
-import * as serviceWorker from './serviceWorker';
-
 import './style/style.css';
 
 const theme = createMyTheme();
@@ -23,7 +21,5 @@ ReactDOM.render(
       </ConnectedRouter>
     </Provider>
   </ThemeProvider>,
-  document.getElementById('myRoot')
+  document.getElementById('myRoot'),
 );
-
-serviceWorker.unregister();

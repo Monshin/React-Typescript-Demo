@@ -32,7 +32,7 @@ const postReducer = (state = model, action: Action): State => {
         ...state,
         isLoading: action.isLoading,
       };
-      
+
     default:
       return {
         ...state,

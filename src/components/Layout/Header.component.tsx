@@ -52,8 +52,8 @@ class HeaderPartial extends React.Component<Props> {
 }
 
 const HeaderRedux = connect<StateProps, ActionProps, {}>(
-  () => ({}),
-  { sidemenuShow }
+  null,
+  { sidemenuShow },
 )(HeaderPartial);
 
 export default withStyles(HeaderStyle)(HeaderRedux);

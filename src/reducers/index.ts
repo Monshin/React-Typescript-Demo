@@ -18,5 +18,5 @@ export default (history: History) =>
     postReducer,
 
     form: reduxFormReducer,
-    router: connectRouter(history)
+    router: connectRouter(history),
   });

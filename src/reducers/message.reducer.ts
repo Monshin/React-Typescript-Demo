@@ -1,14 +1,10 @@
-import {
-  MESSAGE_CLOSE,
-  MESSAGE_SHOW,
-  MESSAGE_SHOW_AJAX_ERROR
-} from '../constants/ActionTypes';
+import { MESSAGE_CLOSE, MESSAGE_SHOW, MESSAGE_SHOW_AJAX_ERROR } from '../constants/ActionTypes';
 import { Action, State } from '../types/message.type.js';
 
 const model: State = {
   text: null,
   status: false,
-  variant: 'error'
+  variant: 'error',
 };
 
 const messageReducer = (state: State = model, action: Action): State => {
@@ -17,7 +13,7 @@ const messageReducer = (state: State = model, action: Action): State => {
       return {
         ...state,
         status: false,
-        text: null
+        text: null,
         // variant: 'error',
       };
 
@@ -26,7 +22,7 @@ const messageReducer = (state: State = model, action: Action): State => {
         ...state,
         status: true,
         text: action.text,
-        variant: action.variant || 'error'
+        variant: action.variant || 'error',
       };
 
     case MESSAGE_SHOW_AJAX_ERROR: {
@@ -34,11 +30,11 @@ const messageReducer = (state: State = model, action: Action): State => {
       let messageText;
       if (errorRes && errorRes.code) {
         if (errorRes.message.length > 1) {
-          messageText = errorRes.code + ': ' + errorRes.message;
+          messageText = `${errorRes.code}: ${errorRes.message}`;
         } else if (errorRes.code === 405) {
-          messageText = errorRes.code + ': 無此功能';
+          messageText = `${errorRes.code}: 無此功能`;
         } else {
-          messageText = errorRes.code + ': 系統發生錯誤';
+          messageText = `${errorRes.code}: 系統發生錯誤`;
         }
       } else {
         messageText = '系統發生錯誤';
@@ -47,13 +43,13 @@ const messageReducer = (state: State = model, action: Action): State => {
         ...state,
         status: true,
         text: messageText,
-        variant: 'error'
+        variant: 'error',
       };
     }
 
     default:
       return {
-        ...state
+        ...state,
       };
   }
 };

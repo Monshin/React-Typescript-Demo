@@ -55,7 +55,7 @@ class Home extends React.Component<Props> {
     return (
       <div className={classes.container}>
         <div className={classes.fullContent}>
-          {postDatas.map(item => (
+          {postDatas.map((item) => (
             <Card key={item.id}>
               <CardHeader title={item.title} />
               <CardContent>{item.body}</CardContent>
@@ -69,17 +69,15 @@ class Home extends React.Component<Props> {
 
 const HomeContainer = withRouter(
   connect<StateProps, ActionProps, {}, ReducerState>(
-    // 從 Reducer 來的
     ({ postReducer }) => ({
       postDatas: postReducer.datas,
-      postNeedMore: postReducer.needMore
+      postNeedMore: postReducer.needMore,
     }),
-    // actions
     {
       postClearList,
-      postGetList
-    }
-  )(Home)
+      postGetList,
+    },
+  )(Home),
 );
 
 export default withStyles(MainContentStyles)(HomeContainer);

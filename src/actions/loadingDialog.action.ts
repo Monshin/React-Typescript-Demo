@@ -1,8 +1,5 @@
 // @flow
-import {
-  LOADING_DIALOG_SHOW,
-  LOADING_DIALOG_CLOSE
-} from '../constants/ActionTypes';
+import { LOADING_DIALOG_SHOW, LOADING_DIALOG_CLOSE } from '../constants/ActionTypes';
 import { Action } from '../types/loadingDialog.type';
 
 /**
@@ -10,7 +7,7 @@ import { Action } from '../types/loadingDialog.type';
  *
  */
 const loadingDialogShow = (): Action => ({
-  type: LOADING_DIALOG_SHOW
+  type: LOADING_DIALOG_SHOW,
 });
 
 /**
@@ -18,7 +15,7 @@ const loadingDialogShow = (): Action => ({
  *
  */
 const loadingDialogClose = (): Action => ({
-  type: LOADING_DIALOG_CLOSE
+  type: LOADING_DIALOG_CLOSE,
 });
 
 export { loadingDialogShow, loadingDialogClose };

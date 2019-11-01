@@ -1,8 +1,4 @@
-import {
-  MESSAGE_SHOW,
-  MESSAGE_CLOSE,
-  MESSAGE_SHOW_AJAX_ERROR
-} from '../constants/ActionTypes';
+import { MESSAGE_SHOW, MESSAGE_CLOSE, MESSAGE_SHOW_AJAX_ERROR } from '../constants/ActionTypes';
 
 export type MessageVariantType = 'success' | 'warning' | 'error' | 'info';
 

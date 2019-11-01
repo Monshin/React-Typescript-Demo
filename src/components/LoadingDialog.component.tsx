@@ -9,14 +9,12 @@ interface Props {
   loadingDialog: loadingDialogState;
 }
 
-const LoadingDialog: React.SFC<Props> = ({ loadingDialog }) => {
-  return (
-    <Dialog open={loadingDialog.status} aria-labelledby="loading-dialog-title">
-      <DialogContent>
-        <CircularProgress />
-      </DialogContent>
-    </Dialog>
-  );
-};
+const LoadingDialog: React.SFC<Props> = ({ loadingDialog }) => (
+  <Dialog open={loadingDialog.status} aria-labelledby="loading-dialog-title">
+    <DialogContent>
+      <CircularProgress />
+    </DialogContent>
+  </Dialog>
+);
 
 export default LoadingDialog;

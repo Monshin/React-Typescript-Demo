@@ -26,7 +26,7 @@ const Message: React.SFC<Props> = ({ classes, message, onMessageClose }) => {
     success: CheckCircleIcon,
     warning: WarningIcon,
     error: ErrorIcon,
-    info: InfoIcon
+    info: InfoIcon,
   };
   const Icon = variantIcon[message.variant || 'error'];
 
@@ -34,7 +34,7 @@ const Message: React.SFC<Props> = ({ classes, message, onMessageClose }) => {
     <Snackbar
       anchorOrigin={{
         vertical: 'bottom',
-        horizontal: 'center'
+        horizontal: 'center',
       }}
       open={message.status}
       autoHideDuration={1500}
@@ -42,25 +42,17 @@ const Message: React.SFC<Props> = ({ classes, message, onMessageClose }) => {
     >
       <SnackbarContent
         className={classNames(classes[message.variant])}
-        message={[
-          <span key="message" id="client-snackbar" className={classes.message}>
-            <Icon
-              key="icon"
-              className={classNames(classes.icon, classes.iconVariant)}
-            />
+        message={(
+          <span className={classes.message}>
+            <Icon key="icon" className={classes.icon} />
             {message.text === null ? '' : message.text}
           </span>
-        ]}
-        action={[
-          <IconButton
-            key="close"
-            aria-label="Close"
-            color="inherit"
-            onClick={onMessageClose}
-          >
+        )}
+        action={(
+          <IconButton aria-label="Close" onClick={onMessageClose}>
             <CloseIcon />
           </IconButton>
-        ]}
+        )}
       />
     </Snackbar>
   );

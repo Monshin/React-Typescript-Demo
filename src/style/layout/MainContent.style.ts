@@ -14,17 +14,17 @@ const mainContentStyle = (theme: Theme) =>
       alignContent: 'flex-start',
       flexDirection: 'row',
       [theme.breakpoints.down('sm')]: {
-        flexDirection: 'column'
-      }
+        flexDirection: 'column',
+      },
     },
     containerReverse: {
       flexDirection: 'row-reverse',
       [theme.breakpoints.down('sm')]: {
-        flexDirection: 'column'
-      }
+        flexDirection: 'column',
+      },
     },
     containerHeader: {
-      zIndex: theme.zIndex.drawer - 2
+      zIndex: theme.zIndex.drawer - 2,
     },
     sideContent: {
       width: sideContentWidth,
@@ -35,8 +35,8 @@ const mainContentStyle = (theme: Theme) =>
         width: '100%',
         position: 'relative',
         top: 0,
-        marginBottom: pageMarginAppBar
-      }
+        marginBottom: pageMarginAppBar,
+      },
     },
     mainContent: {
       flexGrow: 1,
@@ -46,12 +46,12 @@ const mainContentStyle = (theme: Theme) =>
       [theme.breakpoints.down('sm')]: {
         marginRight: 0,
         minWidth: '100%',
-        maxWidth: '100%'
-      }
+        maxWidth: '100%',
+      },
     },
     fullContent: {
-      width: '100%'
-    }
+      width: '100%',
+    },
   });
 
 export default mainContentStyle;

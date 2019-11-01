@@ -13,12 +13,11 @@ export default function configureStore() {
   const epicMiddleware = createEpicMiddleware<any, any, ReducerState>();
 
   const history = createBrowserHistory();
-  const composeEnhancers =
-    config.REACT_EVN === 'debug' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose : compose;
+  const composeEnhancers = config.REACT_EVN === 'debug' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose : compose;
 
   const store = createStore(
     rootReducer(history),
-    composeEnhancers(applyMiddleware(routerMiddleware(history), epicMiddleware))
+    composeEnhancers(applyMiddleware(routerMiddleware(history), epicMiddleware)),
   );
 
   epicMiddleware.run(rootEpic);

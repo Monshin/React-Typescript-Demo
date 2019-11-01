@@ -28,7 +28,7 @@ interface ActionProps {
 type Props = StateProps & ActionProps & RouteComponentProps<{}>;
 
 class App extends React.Component<Props> {
-  componentWillMount() {
+  componentDidMount() {
     const { loadingDialogClose } = this.props;
     loadingDialogClose();
   }
@@ -51,13 +51,15 @@ class App extends React.Component<Props> {
   }
 }
 
-export default withRouter(connect<StateProps, ActionProps, {}, ReducerState>(
-  ({ messageReducer, loadingDialogReducer }) => ({
-    message: messageReducer,
-    loadingDialog: loadingDialogReducer
-  }),
-  {
-    messageClose,
-    loadingDialogClose
-  }
-)(App));
+export default withRouter(
+  connect<StateProps, ActionProps, {}, ReducerState>(
+    ({ messageReducer, loadingDialogReducer }) => ({
+      message: messageReducer,
+      loadingDialog: loadingDialogReducer,
+    }),
+    {
+      messageClose,
+      loadingDialogClose,
+    },
+  )(App),
+);

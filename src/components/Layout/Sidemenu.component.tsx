@@ -72,9 +72,7 @@ class SideMenuPartial extends React.Component<Props> {
             variant="temporary"
             open={sidemenu.status}
             className={classes.drawerPaper}
-            classes={{
-              paper: classes.drawerPaper
-            }}
+            classes={{ paper: classes.drawerPaper }}
           >
             <IconButton className={classes.drawerCloseButton} onClick={this.handleDrawerClose}>
               <ChevronLeftIcon />
@@ -92,12 +90,11 @@ class SideMenuPartial extends React.Component<Props> {
 const SideMenuRedux = connect<StateProps, ActionProps, {}, ReducerState>(
   ({ sidemenuReducer }) => ({
     sidemenu: sidemenuReducer,
-    // pathname: routing.location.pathname
   }),
   {
     sidemenuClose,
-    sidemenuChange
-  }
+    sidemenuChange,
+  },
 )(SideMenuPartial);
 
 export default withStyles(SideMenuStyle)(SideMenuRedux);
