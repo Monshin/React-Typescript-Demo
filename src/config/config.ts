@@ -26,7 +26,7 @@ const getConfig = () => {
 
   return {
     PROJECT_NAME,
-    VERSION: '0.1.3',
+    VERSION: '0.1.4',
     REACT_EVN: envVars.REACT_EVN,
     API_URL: API_URL[envVars.REACT_EVN],
   };
