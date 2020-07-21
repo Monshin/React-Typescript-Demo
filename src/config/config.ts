@@ -10,7 +10,7 @@ const getConfig = () => {
     throw new Error('Config validation error');
   }
 
-  const PROJECT_NAME = 'react-typescript-simple';
+  const PROJECT_NAME = 'react-typescript-demo';
 
   if (localStorage.debug) {
     localStorage.removeItem('debug');

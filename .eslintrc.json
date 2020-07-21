@@ -2,8 +2,8 @@
   "parser": "@typescript-eslint/parser",
   "env": {
     "browser": true,
-    "commonjs": true,
-    "es6": true
+    "es6": true,
+    "node": true
   },
   "extends": ["airbnb", "eslint:recommended", "plugin:react/recommended"],
   "parserOptions": {
@@ -14,23 +14,32 @@
       "jsx": true
     }
   },
-  "plugins": ["@typescript-eslint", "react"],
+  "plugins": ["prettier", "@typescript-eslint", "react"],
   "rules": {
+    "prettier/prettier": "error",
+    "indent": ["error", 2, { "SwitchCase": 1, "ignoredNodes": ["TemplateLiteral > *"] }],
     "strict": 0,
     "no-shadow": "off",
-    "no-console": "off",
+    "no-nested-ternary": "off",
     "import/extensions": "off",
     "import/no-mutable-exports": "off",
     "import/no-unresolved": "off",
     "implicit-arrow-linebreak": "off",
-    "jsx-a11y/anchor-is-valid": ["error", { "components": ["Link"], "specialLink": ["to"] }],
     "react/prop-types": ["off"],
     "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx", ".tsx"] }],
     "react/jsx-props-no-spreading": ["error", { "exceptions": ["Route"] }],
+    "react/jsx-wrap-multilines": "off",
+    "jsx-a11y/anchor-is-valid": ["error", { "components": ["Link"], "specialLink": ["to"] }],
+    "jsx-a11y/click-events-have-key-events": ["off"],
+    "jsx-a11y/no-static-element-interactions": ["off"],
+    "jsx-a11y/label-has-associated-control": ["off"],
+    "jsx-a11y/media-has-caption": "off",
+    "function-paren-newline": ["off"],
     "object-curly-newline": [
       "error",
       { "ImportDeclaration": { "multiline": true }, "ExportDeclaration": { "multiline": true } }
-    ]
+    ],
+    "operator-linebreak": ["off"]
   },
   "overrides": [
     {

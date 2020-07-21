@@ -1,5 +1,4 @@
 import React from 'react';
-// import Debug from 'debug';
 import classNames from 'classnames';
 import withStyles, { WithStyles } from '@material-ui/core/styles/withStyles';
 import { connect } from 'react-redux';
@@ -12,8 +11,6 @@ import { sidemenuClose } from '../../actions/sidemenu.action';
 import SideMenuStyle from '../../style/layout/SideMenu.style';
 
 import ReducerState from '../../types/Redux.type';
-
-// const debug = Debug(`${_CONFIG_.PROJECT_NAME}:sidemenu.main.component`);
 
 interface SideMenuItemType {
   text: React.ReactNode;

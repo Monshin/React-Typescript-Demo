@@ -1,5 +1,4 @@
 import React from 'react';
-// import Debug from 'debug';
 import classNames from 'classnames';
 import withStyles, { WithStyles } from '@material-ui/core/styles/withStyles';
 import { connect } from 'react-redux';
@@ -18,8 +17,6 @@ import SideMenuStyle from '../../style/layout/SideMenu.style';
 
 import ReducerState from '../../types/Redux.type';
 import { State as SideemnuState } from '../../types/sidemenu.type';
-
-// const debug = Debug(`${_CONFIG_.PROJECT_NAME}:Sidemenu.component`);
 
 interface StateProps {
   sidemenu: SideemnuState;

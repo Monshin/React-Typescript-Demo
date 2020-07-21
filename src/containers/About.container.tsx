@@ -1,10 +1,7 @@
 import React from 'react';
-// import Debug from 'debug';
 import withStyles, { WithStyles } from '@material-ui/core/styles/withStyles';
 
 import MainContentStyles from '../style/layout/MainContent.style';
-
-// const debug = Debug(`${_CONFIG_.PROJECT_NAME}:About.container`);
 
 type Props = WithStyles<typeof MainContentStyles>;
 
