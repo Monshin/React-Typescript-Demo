@@ -1,4 +1,3 @@
-import Debug from 'debug';
 import { of, empty, merge } from 'rxjs';
 import { ajax } from 'rxjs/ajax';
 import { mergeMap, catchError } from 'rxjs/operators';
@@ -16,8 +15,6 @@ import { Action as PostActionType, GetListAction } from '../types/post.type';
 import { Action as LoadingDialogActionType } from '../types/loadingDialog.type';
 import { Action as MessageActionType } from '../types/message.type';
 
-const debug = Debug(`${config.PROJECT_NAME}:post.epic`);
-
 type OutputActionType = PostActionType | MessageActionType | LoadingDialogActionType;
 
 const postGetList: Epic<OutputActionType, OutputActionType, ReducerState> = (action$, store$) =>
@@ -34,7 +31,7 @@ const postGetList: Epic<OutputActionType, OutputActionType, ReducerState> = (act
           })
           .pipe(
             mergeMap((response) => {
-              debug(response);
+              console.log(response);
               if (response.status === 200) {
                 const responseData = response.response;
                 if (callback && typeof callback === 'function') callback(null, responseData);
@@ -52,7 +49,7 @@ const postGetList: Epic<OutputActionType, OutputActionType, ReducerState> = (act
               );
             }),
             catchError((error) => {
-              debug('posts', error);
+              console.log('posts', error);
               if (callback && typeof callback === 'function') callback(error);
               return of(
                 postActions.postSetListLoading(false),

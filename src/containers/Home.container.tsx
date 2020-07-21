@@ -1,5 +1,4 @@
 import React from 'react';
-// import Debug from 'debug';
 import withStyles, { WithStyles } from '@material-ui/core/styles/withStyles';
 import { connect } from 'react-redux';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
@@ -14,8 +13,6 @@ import MainContentStyles from '../style/layout/MainContent.style';
 
 import ReducerState from '../types/Redux.type';
 import { State as PostState } from '../types/post.type';
-
-// const debug = Debug(`${config.PROJECT_NAME}:Home.container`);
 
 interface StateProps {
   postDatas: PostState['datas'];

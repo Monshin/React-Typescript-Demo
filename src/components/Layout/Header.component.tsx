@@ -1,5 +1,4 @@
 import React from 'react';
-// import Debug from 'debug';
 import withStyles, { WithStyles } from '@material-ui/core/styles/withStyles';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -12,8 +11,6 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { sidemenuShow } from '../../actions/sidemenu.action';
 
 import HeaderStyle from '../../style/layout/Header.style';
-
-// const debug = Debug(`${_CONFIG_.PROJECT_NAME}:Header.component`);
 
 interface StateProps {}
 
@@ -38,7 +35,7 @@ class HeaderPartial extends React.Component<Props> {
           <IconButton onClick={this.handleDrawerOpen} className={classes.sideMenuIcon}>
             <MenuIcon />
           </IconButton>
-          <Link to="/">React SSR Demo</Link>
+          <Link to="/">React Typescript Demo</Link>
           <div className={classes.appBarContent} />
           <div>
             <IconButton>

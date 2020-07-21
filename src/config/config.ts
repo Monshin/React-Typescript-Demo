@@ -10,7 +10,7 @@ const getConfig = () => {
     throw new Error('Config validation error');
   }
 
-  const PROJECT_NAME = 'react-typescript-simple';
+  const PROJECT_NAME = 'react-typescript-demo';
 
   if (localStorage.debug) {
     localStorage.removeItem('debug');
@@ -26,7 +26,7 @@ const getConfig = () => {
 
   return {
     PROJECT_NAME,
-    VERSION: '0.1.4',
+    VERSION: '0.1.5',
     REACT_EVN: envVars.REACT_EVN,
     API_URL: API_URL[envVars.REACT_EVN],
   };
