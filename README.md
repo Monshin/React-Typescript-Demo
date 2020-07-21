@@ -12,19 +12,19 @@ Test Typescript React with Redux, Redux-Observable, React-Router, Material-ui
 ### Development / Debug
 
 ```shell
-yarn debug
+npm run debug
 ```
 
 ### Build
 
 ```shell
-yarn build
+npm run build
 ```
 
 ### Start
 
 ```shell
-yarn start
+npm run start
 ```
 
 ## Authors
